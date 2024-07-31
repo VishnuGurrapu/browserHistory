@@ -1,0 +1,36 @@
+.user-card-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+}
+.time {
+  font-size: 15px;
+  padding-right: 20px;
+}
+.timeTitleContainer {
+  display: flex;
+  flex-direction: row;
+}
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.webIcon {
+  height: 20px;
+  padding-right: 10px;
+}
+.title {
+  font-size: 15px;
+}
+.webUrl {
+  font-size: 12px;
+}
+.deleteIcon {
+  height: 20px;
+  justify-content: space-between;
+}
