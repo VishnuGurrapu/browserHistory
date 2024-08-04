@@ -11,19 +11,22 @@ const HistoryItem = props => {
       <div className="timeTitleContainer">
         <p className="time">{timeAccessed}</p>
         <div className="titleContainer">
-          <img src={logoUrl} className="webIcon" />
+          <img src={logoUrl} alt="app logo" className="webIcon" />
           <p className="title">
             {title}
             <span className="webUrl"> {domainUrl}</span>
           </p>
         </div>
       </div>
-
-      <img
-        onClick={onDelete}
-        src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
-        className="deleteIcon"
-      />
+      <button>
+        {' '}
+        <img
+          onClick={onDelete}
+          src="https://assets.ccbp.in/frontend/react-js/delete-img.png"
+          className="deleteIcon"
+          alt="delete"
+        />
+      </button>
     </li>
   )
 }
