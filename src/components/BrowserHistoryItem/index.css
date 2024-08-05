@@ -29,8 +29,14 @@
 }
 .webUrl {
   font-size: 12px;
+  padding-left: 5px;
 }
 .deleteIcon {
   height: 20px;
   justify-content: space-between;
+}
+.pContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

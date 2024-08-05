@@ -1,8 +1,8 @@
 import './App.css'
-import HistoryItem from './components/BrowserHistoryItem'
 import {Component} from 'react'
+import HistoryItem from './components/BrowserHistoryItem'
 
-//These are the list used in the application. You can move them to any component needed.
+// These are the list used in the application. You can move them to any component needed.
 const initialHistoryList = [
   {
     id: 0,
@@ -83,11 +83,13 @@ class App extends Component {
     searchInput: '',
     HistoryList: initialHistoryList,
   }
+
   onChangeSearchInput = event => {
     this.setState({
       searchInput: event.target.value,
     })
   }
+
   onDeleteItem = id => {
     const {HistoryList} = this.state
 
@@ -103,75 +105,77 @@ class App extends Component {
     const searchResults = HistoryList.filter(eachitem =>
       eachitem.title.includes(searchInput),
     )
-    if (searchResults.lenght === 0) {
+    if (searchResults.length === 0) {
       return (
-        <div className='app-container'>
-          <div className='header'>
+        <div className="app-container">
+          <div className="header">
             <img
-              src='https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png'
-              className='historyLogo'
+              src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
+              className="historyLogo"
+              alt="app logo"
             />
-            <div className='inputContainer'>
-              <div className='iconContainer'>
+            <div className="inputContainer">
+              <div className="iconContainer">
                 <img
-                  src='https://assets.ccbp.in/frontend/react-js/search-img.png'
-                  className='icon'
+                  src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+                  className="icon"
+                  alt="search"
                 />
               </div>
               <input
-                className='Searchinput'
-                placeholder='Search History'
-                type='search'
+                className="Searchinput"
+                placeholder="Search History"
+                type="search"
                 value={searchInput}
                 onChange={this.onChangeSearchInput}
               />
             </div>
           </div>
-          <div className='list-container'>
-            <p className='noHistory'>There is no history to show</p>
-          </div>
-        </div>
-      )
-    } else {
-      return (
-        <div className='app-container'>
-          <div className='header'>
-            <img
-              src='https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png'
-              className='historyLogo'
-            />
-            <div className='inputContainer'>
-              <div className='iconContainer'>
-                <img
-                  src='https://assets.ccbp.in/frontend/react-js/search-img.png'
-                  className='icon'
-                  alt='search'
-                />
-              </div>
-              <input
-                className='Searchinput'
-                placeholder='Search History'
-                type='search'
-                value={searchInput}
-                onChange={this.onChangeSearchInput}
-              />
-            </div>
-          </div>
-
-          <div className='list-container'>
-            <ul className='list'>
-              {searchResults.map(each => (
-                <HistoryItem
-                  HistoryDetails={each}
-                  onDeleteItem={this.onDeleteItem}
-                  key={each.id}
-                />
-              ))}
-            </ul>
+          <div className="list-container">
+            <p className="noHistory">There is no history to show</p>
           </div>
         </div>
       )
     }
+    return (
+      <div className="app-container">
+        <div className="header">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
+            className="historyLogo"
+            alt="app logo"
+          />
+          <div className="inputContainer">
+            <div className="iconContainer">
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+                className="icon"
+                alt="search"
+              />
+            </div>
+            <input
+              className="Searchinput"
+              placeholder="Search History"
+              type="search"
+              value={searchInput}
+              onChange={this.onChangeSearchInput}
+            />
+          </div>
+        </div>
+
+        <div className="list-container">
+          <ul className="list">
+            {searchResults.map(each => (
+              <HistoryItem
+                HistoryDetails={each}
+                onDeleteItem={this.onDeleteItem}
+                key={each.id}
+              />
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
   }
 }
 
